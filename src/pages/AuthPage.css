@@ -1,0 +1,36 @@
+.auth-page {
+    text-align: center;
+    /* border: 1px black solid; */
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    padding: 50px;
+}
+
+.auth-page input {
+    margin: 10px;
+}
+
+.auth-page button {
+    margin-top: 10px;
+}
+
+.auth-page form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    .auth-page form {
+        width: 60%
+    }
+}
+
+@media (max-width: 500px) {
+    .auth-page form {
+        width: 90%
+    }
+}

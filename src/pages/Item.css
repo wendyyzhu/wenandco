@@ -1,0 +1,18 @@
+.item-details {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.item-details img {
+    width: 50%;
+}
+
+.item-details button {
+    background: none;
+    border: none
+}
+
+.item-details button:hover {
+    border: 1px solid black;
+    text-align: right;
+}

@@ -1,0 +1,14 @@
+.shop {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.shop select {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cart-items img {
+    width: 30px;
+}
