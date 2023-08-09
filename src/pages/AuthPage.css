@@ -23,6 +23,10 @@
     margin: 0 auto;
 }
 
+.auth-page a {
+    font-size: large;
+}
+
 @media (max-width: 800px) {
     .auth-page form {
         width: 60%

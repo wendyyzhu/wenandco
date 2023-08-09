@@ -11,39 +11,42 @@ export default function User({ user }) {
     useEffect(function() {
         ordersAPI.getOrders()
             .then(res => {
-                console.log(res)
                 const orders = res
                 setOrderHistory(orders.filter(order => order.user === user._id && order.isPaid))
             })
-            console.log(orderHistory)
     }, [])
 
     return (
+        
         <div className='user'>
-            <h2>Hello, {user.name}</h2>
-            <h3>Email: {user.email}</h3>
-            <h2>Previous Orders</h2>
+            <section>
+                <h1 className='hello-msg'>Hello, {user.name}</h1>
+                <h3 className='email'>Email: {user.email}</h3>
+                <h3 className='previous-order'>Previous Orders:</h3>
+            </section>
+
             {orderHistory 
                 ? <div>
                     {orderHistory.map((order, idx) => (
                         <div className='order-details' key={idx}>
-                        <h4>Order number: {order.orderId}</h4>
-                        <h4>Order date: {order.updatedAt.slice(0, 10)}</h4>
-                        <div>
-                            {order.lineItems.map(item => (
-                                <div key={item.item._id}>
-                                    <Link to={item.item._id}><img src={item.item.image[0]} alt="" /></Link>
-                                    <Link to={item.item._id}>{item.item.name}</Link>             
-                                    <h5>${item.extPrice.toFixed(2)}</h5>
-                                    <h5>Qty: {item.qty}</h5>
-                                </div>
-                            ))}
-                        </div>
-                        <h4>Total Price: ${order.orderTotal.toFixed(2)}</h4>
-                        <h4>Total Quantity: {order.totalQty}</h4>
+                            <div className='order-header'>
+                                <h4>Order #: {order.orderId}</h4>
+                                <h4>Date: {order.updatedAt.slice(0, 10)}</h4>
+                                <h4>Total Qty: {order.totalQty}</h4>
+                                <h4>Total Price: ${order.orderTotal.toFixed(2)}</h4>
+                            </div>
+                            <div>
+                                {order.lineItems.map(item => (
+                                    <div key={item.item._id} className='order-items'>
+                                        <Link to={item.item._id}><img src={item.item.image[0]} alt="" /></Link>
+                                        <Link to={item.item._id}>{item.item.name}</Link>             
+                                        <h5>Qty: {item.qty}</h5>
+                                        <h5>${item.extPrice.toFixed(2)}</h5>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     ))}
-
                 </div>
                 : <h4>No previous orders</h4>
             }

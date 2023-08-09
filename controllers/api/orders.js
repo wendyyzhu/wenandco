@@ -7,11 +7,6 @@ module.exports = {
     checkout
 }
 
-// async function orders(req, res) {
-//     const orders = await Order.getCart(req.user._id)
-//     res.json(orders)
-// }
-
 async function cart(req, res) {
     const cart = await Order.getCart(req.user._id)
     res.json(cart)

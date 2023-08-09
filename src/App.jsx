@@ -21,22 +21,22 @@ export default function App() {
 
   return (
     <main className="App">
-      <ShippingBar />
-      <Logo />
-      <NavBar user={user} setUser={setUser} />
-          <Routes>
-            {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-            {/* <Route path="/orders/new" element={<NewOrderPage />} />
-            <Route path="/orders" element={<OrderHistoryPage />} /> */}
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/shop" element={<Shop />} />
-            <Route exact path="/shop/:itemId" element={<Item />} />
-            <Route path="/user" element={<User user={user}/>}></Route>
-            <Route path="/login" element={<AuthPage setUser={setUser} />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/*" element={<Navigate to="/" />} />
-          </Routes>
-      {(location.pathname === "/") && <Collections />}
+      <div>
+        <ShippingBar />
+        <Logo />
+        <NavBar user={user} setUser={setUser} />
+        {(location.pathname === "/") && <Collections />}
+        {/* {(location.pathname === "/") && <Shop />} */}
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/login" element={<AuthPage setUser={setUser} />} />
+              <Route path="/shop" element={<Shop />}></Route>
+              <Route exact path="/shop/:itemId" element={user ? <Item /> : <Navigate to="/login" />} />
+              <Route path="/user" element={user ? <User user={user} /> : <Navigate to="/login" />}></Route>
+              <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
+              <Route path="/*" element={<Navigate to="/" />} />
+            </Routes>
+      </div>
       <Footer />
     </main>
   );
