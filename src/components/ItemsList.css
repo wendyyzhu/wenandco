@@ -1,6 +1,12 @@
 .items-list img {
     width: 100%;
     margin-top: 20px;
+    border-radius: 60px;
+}
+
+.items-list img:hover {
+    border: 10px solid rgb(209, 209, 197);
+    
 }
 
 .items-list div {

@@ -9,14 +9,14 @@ export default function Collections() {
                 <article>
                     <h2>Spring Collection</h2>
                     <h4 className="collection-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                    <Link to="shop">SHOP NOW</Link>
+                    <Link to="shop" className="shop-now">SHOP NOW</Link>
                 </article>
             </div>
             <div className="collections" id="collection-large">
                 <article>
                     <h2>Simplicity Collection</h2>
                     <h4 className="collection-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                    <Link to="shop">SHOP NOW</Link>
+                    <Link to="shop" className="shop-now">SHOP NOW</Link>
                 </article>
                 <Link to="shop"><img src="simplicity-collection.JPG" alt="" /></Link>
             </div>
@@ -25,7 +25,7 @@ export default function Collections() {
                 <article>
                     <h2>Simplicity Collection</h2>
                     <h4 className="collection-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                    <Link to="shop">SHOP NOW</Link>
+                    <Link to="shop" className="shop-now">SHOP NOW</Link>
                 </article>
             </div>
         </div>

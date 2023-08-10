@@ -15,13 +15,16 @@
     display: flex;
     align-items: center;
     width:fit-content;
-    border: 1px solid black;
     margin-top: 30px;
     margin-bottom: 20px;
+    border-radius: 60px;
+    padding: 10px;
+    background-color: rgb(209, 209, 197)
 }
 
 .add-to-cart:hover {
-    background-color: rgb(209, 209, 197);
+    background-color: rgb(241, 241, 237);
+    border: 5px solid rgb(209, 209, 197);
 }
 
 .item-details img {
@@ -49,6 +52,12 @@
 
 .care-instructions h4 {
     padding-right: 10px;
+    padding: 10px;
+}
+
+.care-instructions:hover {
+    background-color: rgb(209, 209, 197);
+    border-radius: 60px;
 }
 
 .care-text {
@@ -63,6 +72,7 @@
 .cart-wrapper {
     margin-top: 30px;
     padding: 30px;
+    padding-bottom: 50px;
     background-color: rgb(209, 209, 197);
     max-width: 800px;
     text-align: center;
@@ -72,21 +82,31 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .cart-wrapper img {
     width: 100px;
-    padding-right: 5px;
+    margin-right: 5px;
+    border-radius: 20px;
+}
+
+.cart-wrapper img:hover {
+    border: 5px solid rgb(241, 241, 237);
 }
 
 .cart-wrapper .view-cart {
-    border: 1px solid black;
-    padding: 10px;
+    align-items: center;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    border-radius: 60px;
+    background-color: rgb(241, 241, 237);
 }
 
 .cart-wrapper .view-cart:hover {
-    background-color: rgb(241, 241, 237);
+    background-color: rgb(209, 209, 197);
+    border: 5px solid rgb(241, 241, 237);
 }
 
 @media (min-width: 800px) {

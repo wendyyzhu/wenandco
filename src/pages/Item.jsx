@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import './Item.css'
 import * as itemsAPI from '../utilities/items-api'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import * as ordersAPI from '../utilities/orders-api'
 import { Link } from "react-router-dom"
 import { Carousel } from 'react-responsive-carousel'
@@ -29,6 +29,7 @@ export default function Item() {
     const [toShipping, setToShipping] = useState(false)
 
     const { itemId } = useParams()
+    
     console.log(itemId);
 
     useEffect(function() {
@@ -70,6 +71,15 @@ export default function Item() {
 
     function handleShipping() {
         setToShipping(!toShipping)
+    }
+
+    function handleClick(id) {
+        itemsAPI.getById(id)
+            .then(res => {
+                console.log(res)
+                setShopItem(res)
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+            })
     }
 
     return (
@@ -118,7 +128,7 @@ export default function Item() {
                     </div>
                     {toRefund &&
                         <div className='care-text'>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis praesentium cumque, debitis natus alias commodi similique eum. Nostrum magnam et eligendi! Nemo quas ratione, sequi velit aliquam illo? Omnis, qui?</p>
+                            <p>Refunds & exchanges are accepted within 30 days of purchase. Buyers are responsible for return postage costs. If the item is not returned in its original condition, the buyer is responsible for any loss in value.</p>
                         </div>
                     }
 
@@ -131,7 +141,7 @@ export default function Item() {
                     </div>
                     {toShipping &&
                         <div className='care-text'>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis praesentium cumque, debitis natus alias commodi similique eum. Nostrum magnam et eligendi! Nemo quas ratione, sequi velit aliquam illo? Omnis, qui?</p>
+                            <p>Each piece is made to order, please allow for 7-10 business days of processing time. Your order will be shipped via AustPost. Free shipping is available for orders over $100 or there will be a flat rate shipping charge of $9.95. We currently only ship to addresses within Australia.</p>
                         </div>
                     }
                 </section>
@@ -147,15 +157,15 @@ export default function Item() {
                     <h2>Your chosen items:</h2>
                     {cart.lineItems.map(item => (
                         <div className="cart-items" key={item._id}>
-                            <Link to={item.item._id}><img src={item.item.image[0]} alt="" /></Link>
-                            <Link to={item.item._id}>{item.item.name}</Link>             
+                            <Link to="" onClick={() => {handleClick(item.item._id)}}><img src={item.item.image[0]} alt="" /></Link>
+                            <Link to="" onClick={() => {handleClick(item.item._id)}}>{item.item.name}</Link>             
                             <h5>${item.extPrice.toFixed(2)}</h5>
                             <button onClick={() => handleChangeQty(item.item._id, item.qty - 1)}>-</button>
                             <h5>{item.qty}</h5>
                             <button onClick={() => handleChangeQty(item.item._id, item.qty + 1)}>+</button>
                         </div>
                     ))}
-                    <Link to="/cart" className='view-cart'>View Cart</Link>
+                    <Link to="/cart" className='view-cart'>View Shopping Cart</Link>
                 </div>
             }
         </div>

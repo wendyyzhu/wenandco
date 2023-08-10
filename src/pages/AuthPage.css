@@ -6,14 +6,32 @@
     margin-top: 30px;
     margin-bottom: 60px;
     padding: 50px;
+    background-color: rgb(241, 241, 237);
+    border-radius: 60px;
 }
 
 .auth-page input {
     margin: 10px;
-}
+    padding: 15px;
+    border-radius: 60px;
+    border: none
+} 
 
 .auth-page button {
-    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(209, 209, 197);
+    align-items: center;
+    font-size: large;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 60px;
+    padding: 10px 30px;
+    border: none;
+}
+
+.auth-page button:hover {
+    background-color: rgb(241, 241, 237);
+    border: 5px solid rgb(209, 209, 197);
 }
 
 .auth-page form {
@@ -25,6 +43,12 @@
 
 .auth-page a {
     font-size: large;
+    padding: 10px;
+    border-radius: 60px;
+}
+
+.auth-page a:hover {
+    background-color: rgb(209, 209, 197);
 }
 
 @media (max-width: 800px) {

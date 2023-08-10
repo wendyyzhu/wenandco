@@ -39,8 +39,8 @@ export default function Cart() {
                     <h2>Shopping cart</h2>
                     {cart.lineItems.map(item => (
                         <div className="cart-items" key={item._id}>
-                            <Link to={item.item._id}><img src={item.item.image[0]} alt="" /></Link>
-                            <Link to={item.item._id}>{item.item.name}</Link>             
+                            <Link to={`/shop/${item.item._id}`}><img src={item.item.image[0]} alt="" /></Link>
+                            <Link to={`/shop/${item.item._id}`}>{item.item.name}</Link>             
                             <h5>${item.extPrice.toFixed(2)}</h5>
                             <button onClick={() => handleChangeQty(item.item._id, item.qty - 1)}>-</button>
                             <h5>{item.qty}</h5>
@@ -49,7 +49,7 @@ export default function Cart() {
                     ))}
                     <h3>Total Price: ${cart.orderTotal.toFixed(2)}</h3>
                     <h4>Total Quantity: {cart.totalQty}</h4>
-                    <button onClick={handleCheckout} className='checkout-btn'>Check Out</button>
+                    <button onClick={handleCheckout} className='checkout-btn'>Check Out Here</button>
                 </div>
             }
         </div>

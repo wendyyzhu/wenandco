@@ -4,8 +4,22 @@
 }
 
 .user .email, .user .hello-msg {
-    text-align: right;
+    text-align: center;
+    background-color: rgb(209, 209, 197);
+    margin: 0;
+    padding: 20px;
 }
+
+.user .hello-msg {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
+
+.user .email {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
 
 .user .order-header {
     display: flex;
@@ -18,6 +32,7 @@
 .user img {
     width: 200px;
     margin-top: 10px;
+    border-radius: 60px;
 }
 
 .user section {
@@ -46,15 +61,13 @@
     background-color: rgb(209, 209, 197);
 }
 
-.user .order-items {
-    margin: 0;
-}
-
 .user .order-details {
     padding-bottom: 40px;
     padding-top: 30px;
     width: 90%;
     margin: 0 auto;
+    border-radius: 60px;
+    margin-bottom: 30px;
 }
 
 @media (max-width: 700px) {
@@ -72,5 +85,8 @@
 @media (max-width: 450px) {
     .user img {
         width: 50px;
+    }
+    .user {
+        font-size: smaller;
     }
 }

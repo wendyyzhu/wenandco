@@ -26,7 +26,7 @@ export default function User({ user }) {
             </section>
 
             {orderHistory 
-                ? <div>
+                ? <div className='order-wrapper'>
                     {orderHistory.map((order, idx) => (
                         <div className='order-details' key={idx}>
                             <div className='order-header'>
@@ -38,8 +38,8 @@ export default function User({ user }) {
                             <div>
                                 {order.lineItems.map(item => (
                                     <div key={item.item._id} className='order-items'>
-                                        <Link to={item.item._id}><img src={item.item.image[0]} alt="" /></Link>
-                                        <Link to={item.item._id}>{item.item.name}</Link>             
+                                        <img src={item.item.image[0]} alt="" />
+                                        <h4>{item.item.name}</h4>             
                                         <h5>Qty: {item.qty}</h5>
                                         <h5>${item.extPrice.toFixed(2)}</h5>
                                     </div>
