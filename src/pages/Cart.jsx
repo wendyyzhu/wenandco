@@ -2,10 +2,12 @@ import './Cart.css'
 import { useState, useEffect } from "react"
 import * as ordersAPI from '../utilities/orders-api'
 import { Link, useNavigate } from 'react-router-dom'
+import StripeContainer from '../components/StripeContainer'
 
 export default function Cart() {
 
     const [cart, setCart] = useState(null)
+    const [showItem, setShowItem] = useState(false) 
     const navigate = useNavigate()
 
     useEffect(function() {
@@ -24,9 +26,7 @@ export default function Cart() {
     }
 
     function handleCheckout() {
-        ordersAPI.checkout()
-            .then(res => console.log(res))
-        navigate('/')
+        setShowItem(true)
     }
 
     return (
@@ -34,7 +34,12 @@ export default function Cart() {
         {cart &&
         <div className='cart-page-wrapper'>
             { cart.lineItems.length === 0
-                ? <h2>Your shopping cart is empty!</h2>
+                ? <>
+                    <h2>Oh no...</h2>
+                    <h2>Your shopping cart is empty!</h2>
+                    <h3>Let's start shopping!</h3> 
+                    <Link to="/shop"><img id="empty-img" src="https://res.cloudinary.com/dtekuqa73/image/upload/v1691584658/wenandco/download_6_irzhri.png" alt="" /></Link>
+                </>
                 : <div>
                     <h2>Shopping cart</h2>
                     {cart.lineItems.map(item => (
@@ -49,11 +54,12 @@ export default function Cart() {
                     ))}
                     <h3>Total Price: ${cart.orderTotal.toFixed(2)}</h3>
                     <h4>Total Quantity: {cart.totalQty}</h4>
-                    <button onClick={handleCheckout} className='checkout-btn'>Check Out Here</button>
+                    {showItem ? <StripeContainer purchaseTotal={cart.orderTotal.toFixed(2)}/> 
+                              : <button onClick={handleCheckout} className='checkout-btn'>Check Out Now</button>}
                 </div>
-            }
+            }   
         </div>
         }
-        </>
+       </>
     )
 }

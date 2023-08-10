@@ -22,8 +22,6 @@ export default function NavBar({ user, setUser }) {
             <nav className='navbar'>
                 <Link to="/">Home</Link>
                 <Link to="/Shop">Shop</Link>
-                {/* <Link to="">Our Story</Link>
-                <Link to="">Contact</Link> */}
                 { user 
                     ? <>
                         <Link to="/user">Hello, {user.name}!</Link>
@@ -39,8 +37,6 @@ export default function NavBar({ user, setUser }) {
                 <div className="dropdown-content">
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>
-                    {/* <Link to="/our-story">Our Story</Link>
-                    <Link to="/contact">Contact</Link> */}
                     { user 
                         ? <>
                             <Link to="/user">Hello, {user.name}!</Link>

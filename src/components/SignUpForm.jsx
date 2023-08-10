@@ -29,8 +29,6 @@ export default function SignUpForm({ setUser }) {
           setUser(user)
           navigate('/')
       } catch {
-          // An error occured 
-          // Probably due to a duplicate email
           setFormData({ error: 'Sign Up Failed - Try Again' })
       }
   }

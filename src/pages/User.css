@@ -1,6 +1,7 @@
 .user {
     max-width: 1500px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .user .email, .user .hello-msg {
@@ -70,6 +71,10 @@
     margin-bottom: 30px;
 }
 
+#empty-img:hover {
+    border: 10px solid rgb(209, 209, 197);
+}
+
 @media (max-width: 700px) {
     .user img {
         width: 100px;
@@ -79,6 +84,9 @@
 @media (max-width: 600px) {
     .user img {
         width: 70px;
+    }
+    #empty-img {
+        width: 150px;
     }
 }
 

@@ -1,8 +1,7 @@
-import { checkToken } from '../utilities/users-service'
 import { useEffect, useState } from 'react'
 import * as ordersAPI from '../utilities/orders-api'
-import { Link } from 'react-router-dom'
 import './User.css'
+import { Link } from "react-router-dom"
 
 export default function User({ user }) {
 
@@ -17,7 +16,6 @@ export default function User({ user }) {
     }, [])
 
     return (
-        
         <div className='user'>
             <section>
                 <h1 className='hello-msg'>Hello, {user.name}</h1>
@@ -25,7 +23,7 @@ export default function User({ user }) {
                 <h3 className='previous-order'>Previous Orders:</h3>
             </section>
 
-            {orderHistory 
+            {orderHistory && orderHistory.length !== 0
                 ? <div className='order-wrapper'>
                     {orderHistory.map((order, idx) => (
                         <div className='order-details' key={idx}>
@@ -48,10 +46,13 @@ export default function User({ user }) {
                         </div>
                     ))}
                 </div>
-                : <h4>No previous orders</h4>
+                : <>
+                    <h2>Oh no...</h2>
+                    <h2>You've got no previous orders!</h2>
+                    <h3>Let's start shopping!</h3> 
+                    <Link to="/shop"><img id="empty-img" src="https://res.cloudinary.com/dtekuqa73/image/upload/v1691547093/wenandco/pastel-oval-tray5_pwfnlc.jpg" alt="" /></Link>
+                </>
             }
-            
         </div>
-
     )
 }

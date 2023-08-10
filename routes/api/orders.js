@@ -8,7 +8,9 @@ router.get('/', (req, res, next) => {
         .then(orders => res.json(orders))
         .catch(next)
 })
+
 router.get('/cart', ordersCtrl.cart)
+router.put('/cart', ordersCtrl.updateCart)
 router.post('/cart/items/:id', ordersCtrl.addToCart)
 router.post('/cart/checkout', ordersCtrl.checkout)
 router.put('/cart/qty', ordersCtrl.setItemQtyInCart)

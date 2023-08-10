@@ -20,3 +20,6 @@ export function checkout() {
     return sendRequest('/api/orders/cart/checkout', 'POST')
 }
 
+export function updateOrder(formData) {
+    return sendRequest('/api/orders/cart', 'PUT', {formData})
+}

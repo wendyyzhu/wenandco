@@ -1,0 +1,90 @@
+.FormGroup {
+	margin: 0 auto;
+	padding: 0;
+	border: none;
+	background-color: rgb(241, 241, 237);
+	will-change: opacity, transform;
+	border-radius: 60px;
+	margin-bottom: 20px;
+	width: 60%;
+	margin-top: 10px;
+}
+
+.form-details {
+	display: flex;
+    flex-direction: column;
+	width: 60%;
+    margin: 0 auto;
+}
+
+.payment-form-wrapper {
+	border: 5px solid rgb(209, 209, 197);
+	width: 90%;
+	margin: auto;
+	padding: 40px;
+	border-radius: 60px;
+}
+
+.form-details input {
+	border: none;
+	padding: 11px 15px 11px 20px;
+	background-color: rgb(241, 241, 237);
+	font-size: 16px;
+	margin: 15px;
+	border-radius: 60px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.FormRow {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-left: 15px;
+}
+
+.payment-form-wrapper button {
+	font-size: 16px;
+	background-color: rgb(209, 209, 197);
+	border-radius: 60px;
+	padding: 20px 40px;
+	color: black;
+	cursor: pointer;
+	transition: all 100ms ease-in-out;
+	border: none;
+	margin-top: 10px;
+}
+
+.payment-form-wrapper button:hover {
+    background-color: rgb(241, 241, 237);
+    border: 5px solid rgb(209, 209, 197);
+}
+
+@media (max-width: 600px) {
+	.FormGroup {
+		width: 100%
+	}
+	.form-details {
+		width: 100%;
+	}
+}
+
+@media (min-width: 1000px) {
+	.FormGroup {
+		width: 40%
+	}
+	.form-details {
+		width: 40%;
+	}
+}

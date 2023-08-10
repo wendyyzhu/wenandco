@@ -15,7 +15,12 @@
 .bottom img {
     width: 200px;
     margin-top: 50px;
-    
+    padding: 5px;
+}
+
+.bottom img:hover {
+    border: 10px solid rgb(241, 241, 237);
+    border-radius: 50%;
 }
 
 

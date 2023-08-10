@@ -141,7 +141,7 @@ export default function Item() {
                     </div>
                     {toShipping &&
                         <div className='care-text'>
-                            <p>Each piece is made to order, please allow for 7-10 business days of processing time. Your order will be shipped via AustPost. Free shipping is available for orders over $100 or there will be a flat rate shipping charge of $9.95. We currently only ship to addresses within Australia.</p>
+                            <p>Each piece is made to order, please allow for 7-10 business days of processing time. Your order will be shipped via AusPost. Free shipping is available for orders over $100 or there will be a flat rate shipping charge of $9.95. We currently only ship to addresses within Australia.</p>
                         </div>
                     }
                 </section>
@@ -152,7 +152,7 @@ export default function Item() {
         {cart &&
         <div className='cart-wrapper'>
             { cart.lineItems.length === 0
-                ? <h2>Your shopping cart is empty!</h2>
+                ? <h2 className='empty-cart'>Your shopping cart is empty!</h2>
                 : <div>
                     <h2>Your chosen items:</h2>
                     {cart.lineItems.map(item => (

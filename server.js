@@ -1,33 +1,53 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const ensureLoggedIn = require('./config/ensureLoggedIn')
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
+const bodyParser = require("body-parser")
+const cors = require("cors")
+const port = process.env.PORT || 4000;
 require('dotenv').config();
 require('./config/database');
 
-const app = express();
-
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 app.use(logger('dev'));
 app.use(express.json());
-
-// Configure both serve-favicon & static middleware
-// to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
-
-// Middleware to check and verify a JWT and
-// assign the user object from the JWT to req.user
 app.use(require('./config/checkToken'));
 
-const port = process.env.PORT || 3001;
+app.post("/payment", cors(), async (req, res) => {
+	let { amount, id } = req.body
+	try {
+		const payment = await stripe.paymentIntents.create({
+			amount,
+			currency: "AUD",
+			description: "Wen & Co",
+			payment_method: id,
+			confirm: true
+		})
+		console.log("Payment", payment)
+		res.json({
+			message: "Payment successful",
+			success: true
+		})
+	} catch (error) {
+		console.log("Error", error)
+		res.json({
+			message: "Payment failed",
+			success: false
+		})
+	}
+})
 
-// Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/items', require('./routes/api/items'))
 app.use('/api/orders', require('./routes/api/orders'))
-// The following "catch all" route (note the *) is necessary
-// to return the index.html on all non-AJAX/API requests
+
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

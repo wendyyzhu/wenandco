@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as usersService from '../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login({ onLogin, setUser }) {
+export default function Login({ setUser }) {
 
   const [formData, setFormData] = useState({
       email: '',

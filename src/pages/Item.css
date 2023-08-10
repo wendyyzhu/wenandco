@@ -2,6 +2,7 @@
     width: 90%;
     margin: 0 auto;
     background-color: rgb(241, 241, 237);
+    border-radius: 60px;
     padding-top: 40px;
     padding-left: 40px;
     padding-right: 40px;
@@ -19,7 +20,12 @@
     margin-bottom: 20px;
     border-radius: 60px;
     padding: 10px;
-    background-color: rgb(209, 209, 197)
+    background-color: rgb(209, 209, 197);
+    border-radius: 60px;
+}
+
+.empty-cart {
+    padding-top: 20px;
 }
 
 .add-to-cart:hover {
@@ -53,6 +59,7 @@
 .care-instructions h4 {
     padding-right: 10px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .care-instructions:hover {

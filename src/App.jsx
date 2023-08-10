@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate, useNavigate, Link } from 'react-router-dom';
 import './App.css';
 import { getUser } from './utilities/users-service'
 import AuthPage from './pages/AuthPage';
@@ -13,11 +13,18 @@ import Footer from './components/Footer'
 import Collections from './components/Collections';
 import Item from './pages/Item';
 import Cart from './pages/Cart';
+import Payment from './pages/Payment';
+import banner from './Header.png'
 
 export default function App() {
 
   const [user, setUser] = useState(getUser());
   const location = useLocation()
+  const navigate = useNavigate()
+
+  function handleClick() {
+    navigate('/shop')
+  }
 
   return (
     <main className="App">
@@ -25,6 +32,7 @@ export default function App() {
         <ShippingBar />
         <Logo />
         <NavBar user={user} setUser={setUser} />
+        {(location.pathname === "/") && <div className='banner-wrapper'><img onClick={handleClick} src={banner} className='banner' /></div>}
         {(location.pathname === "/") && <Collections />}
         {/* {(location.pathname === "/") && <Shop />} */}
             <Routes>
@@ -34,6 +42,7 @@ export default function App() {
               <Route exact path="/shop/:itemId" element={user ? <Item /> : <Navigate to="/login" />} />
               <Route path="/user" element={user ? <User user={user} /> : <Navigate to="/login" />}></Route>
               <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
+              <Route path="/payment" element={user ? <Payment /> : <Navigate to="/login" />} />
               <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
       </div>

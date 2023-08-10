@@ -17,11 +17,11 @@ lineItemSchema.virtual('extPrice').get(function() {
 
 const orderSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    firstName: { type: 'String' },
-    lastName: { type: 'String' },
-    email: { type: 'String', lowercase: true },
-    address: { type: 'String' },
-    contactNumber: { type: Number },
+    firstName: { type: 'String', default: '' },
+    lastName: { type: 'String', default: ''},
+    email: { type: 'String', lowercase: true, default: ''},
+    address: { type: 'String', default: '' },
+    contactNumber: { type: Number, default: '' },
     lineItems: [lineItemSchema],
     isPaid: { type: Boolean, default: false }
 }, {
@@ -47,6 +47,17 @@ orderSchema.statics.getCart = function(userId) {
         { user: userId },
         { upsert: true, new: true }
     )
+}
+
+orderSchema.methods.setCart = async function(formData) {
+    const cart = this
+    cart.email = 'hello'
+    cart.firstName = formData.firstName
+    cart.lastName = formData.lastName
+    cart.address = formData.address
+    cart.contactNumber = formData.contactNumber
+    cart.isPaid = true
+    return cart.save()
 }
 
 orderSchema.methods.addItemToCart = async function (itemId) {
