@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, useLocation, Navigate, useNavigate, Link } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import './App.css';
 import { getUser } from './utilities/users-service'
 import AuthPage from './pages/AuthPage';
