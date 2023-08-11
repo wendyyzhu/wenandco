@@ -17,18 +17,23 @@ A couple years ago, I had my own small business Wen & Co, selling handmade home 
 
 ### Features: 
 Without an account or logging in, customers will be able to access the home page and product list page. 
+
 ![Home-page gif](./public/Home.gif)
 
 In the product list page, customers can filter the products depending on the collection. The product list will show the name and price of the product. Upon clicking on the product image, the customer will be prompted to either login or sign up. 
+
 ![Shop-Login gif](./public/Shop-Login.gif)
 
-Upon logging in or signing up, the customer will be able to see individual product listings. 
+Upon logging in or signing up, the customer will be able to see individual product listings.
+
 ![Shop-page gif](./public/Shop-page.gif)
 
 When adding a product in the cart, the customer's shopping cart will be displayed at the bottom of the product page. The customer can increase or decrease the item quantity by clicking on the "+" or "-" buttons. Clicking on the product image will take the customer back to the product page. 
+
 ![Add-to-cart gif](./public/Add-to-cart.gif)
 
 At checkout page, the customer will still have a chance to change the quantity of the products they have chosen. Once they are ready, clicking on the "Check Out Now" button will bring up the payment page. After successful checkout, the customer can go into their profile and see their previous orders. 
+
 ![Checkout gif](./public/Checkout.gif)
 
 Other features: 
