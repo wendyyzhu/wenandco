@@ -36,17 +36,17 @@ At checkout page, the customer will still have a chance to change the quantity o
 
 ![Checkout gif](./public/Checkout.gif)
 
-Other features: 
+### Other features: 
 - Once logged in, their will be a profile page for the customer that shows their purchase history. 
 - The shopping cart total price will update as the customer changes the quanity of the chosen products. 
 - Website is mobile responsive. 
 
-Future features: 
+### Future features: 
 - Administration side 
 - Inventory control 
 - Showing best sellers on home page 
 
-Technologies used:
+### Technologies used:
 - Node.js 
 - JavaScript
 - REACT
@@ -55,7 +55,7 @@ Technologies used:
 - Express.js
 - MongoDB 
 
-Dependencies used:
+### Dependencies used:
 - Bcrypt
 - Bootstrap-icons
 - Dotenv
