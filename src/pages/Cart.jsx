@@ -1,26 +1,23 @@
 import './Cart.css'
 import { useState, useEffect } from "react"
 import * as ordersAPI from '../utilities/orders-api'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import StripeContainer from '../components/StripeContainer'
 
 export default function Cart() {
 
     const [cart, setCart] = useState(null)
     const [showItem, setShowItem] = useState(false) 
-    const navigate = useNavigate()
 
     useEffect(function() {
         ordersAPI.getCart()
             .then(res => {
-                console.log(res)
                 setCart(res)})
     }, [])
 
     function handleChangeQty(itemId, newQty) {
     ordersAPI.setItemQtyInCart(itemId, newQty)
         .then(res => {
-            console.log(res)
             setCart(res)
         })
     }

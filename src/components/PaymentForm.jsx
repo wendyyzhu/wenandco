@@ -55,14 +55,12 @@ export default function PaymentForm({ purchaseTotal }) {
                     amount: purchaseTotal * 100,
                     id: id
                 })
-                
-                ordersAPI.updateOrder(formData)
-                .then(res => console.log(res))
-                setSuccess(true)
-                
+                    
                 if (response.data.success) {
                     console.log("Successful payment")
                     setSuccess(true)
+                    ordersAPI.updateOrder(formData)
+                    .then(res => res)
                 }
             } catch (error) {
                 console.log("Error", error)
@@ -72,7 +70,6 @@ export default function PaymentForm({ purchaseTotal }) {
             console.log(error.message)
         }
     }
-
 
     return (
         <div className="payment-form-wrapper">

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import './Item.css'
 import * as itemsAPI from '../utilities/items-api'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import * as ordersAPI from '../utilities/orders-api'
 import { Link } from "react-router-dom"
 import { Carousel } from 'react-responsive-carousel'
@@ -29,13 +29,10 @@ export default function Item() {
     const [toShipping, setToShipping] = useState(false)
 
     const { itemId } = useParams()
-    
-    console.log(itemId);
 
     useEffect(function() {
         itemsAPI.getById(itemId)
             .then(res => {
-                console.log(res)
                 setShopItem(res)
             })
     },[])
@@ -48,7 +45,6 @@ export default function Item() {
     function handleAddToCart(itemId) {
         ordersAPI.addItemToCart(itemId)
             .then(res => {
-                console.log(res)
                 setCart(res)
             })
     }
@@ -56,7 +52,6 @@ export default function Item() {
     function handleChangeQty(itemId, newQty) {
         ordersAPI.setItemQtyInCart(itemId, newQty)
             .then(res => {
-                console.log(res)
                 setCart(res)
             })
     }
@@ -76,7 +71,6 @@ export default function Item() {
     function handleClick(id) {
         itemsAPI.getById(id)
             .then(res => {
-                console.log(res)
                 setShopItem(res)
                 window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             })

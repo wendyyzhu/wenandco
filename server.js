@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -8,7 +9,6 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const port = process.env.PORT || 4000;
-require('dotenv').config();
 require('./config/database');
 
 app.use(cors())
