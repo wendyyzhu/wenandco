@@ -51,7 +51,7 @@ export default function PaymentForm({ purchaseTotal }) {
         if (!error) {
             try {
                 const {id} = paymentMethod
-                const response = await axios.post("http://localhost:4000/payment", {
+                const response = await axios.post("https://wenandco.onrender.com/payment", {
                     amount: Number((purchaseTotal * 100).toFixed(2)),
                     id: id
                 })
