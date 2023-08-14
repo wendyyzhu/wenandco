@@ -1,17 +1,17 @@
-require('dotenv').config();
-require('./config/database');
+require('dotenv').config()
+require('./config/database')
 
-const Category = require('./models/category');
-const Item = require('./models/item');
+const Category = require('./models/category')
+const Item = require('./models/item')
 
 (async function() {
-  await Category.deleteMany({});
+  await Category.deleteMany({})
   const categories = await Category.create([
     {name: 'Spring Collection', sortOrder: 10},
     {name: 'Simplicity Collection', sortOrder: 20},
-  ]);
+  ])
 
-  await Item.deleteMany({});
+  await Item.deleteMany({})
   const items = await Item.create([
     {name: 'Simplicity Coasters', image:['https://res.cloudinary.com/dtekuqa73/image/upload/v1691584169/wenandco/IMG_2455_jwozbg.jpg', 'https://res.cloudinary.com/dtekuqa73/image/upload/v1691547041/wenandco/simplicity-collection_gjookz.jpg', 'https://res.cloudinary.com/dtekuqa73/image/upload/v1691549860/wenandco/IMG_3971_pntwe4.jpg'], category: categories[1], price: 39.95, description: 'These beautifully handcrafted coasters are perfect for those who love minimalism and they will protect your tables, whether it be under a refreshing drink or under a bowl of chips. The coasters come in a bundle of four and each coaster has a cork base to protect your furniture.', size: '8cm diameter x 0.8cm height'},
     {name: 'Spring Coasters - White', image: ['https://res.cloudinary.com/dtekuqa73/image/upload/v1691547080/wenandco/spring-coasters_aqmj3h.png', 'https://res.cloudinary.com/dtekuqa73/image/upload/v1691549703/wenandco/download_gkl2c6.png', 'https://res.cloudinary.com/dtekuqa73/image/upload/v1691549703/wenandco/download_1_m6w2zr.png'], category: categories[0], price: 43.95, description: 'These beautifully handcrafted terrazzo coasters are perfect to brighten up and protect your tables, whether it be under a refreshing drink or under a bowl of chips. The coasters come in a bundle of four and each coaster has a cork base to protect your furniture.', size: '8cm diameter x 0.8cm height'},
@@ -24,9 +24,9 @@ const Item = require('./models/item');
     {name: 'Simplicity Tray - Pink', image: ['https://res.cloudinary.com/dtekuqa73/image/upload/v1691585433/wenandco/IMG_1956_j6h3t3.jpg', 'https://res.cloudinary.com/dtekuqa73/image/upload/v1691547050/wenandco/simplicity-oval-tray_xslxc7.jpg'], category: categories[1], price: 24.95, description: 'Our oval trays are a must have for any table or countertop. These oval trays are intended to display your most valued trinkets and jewellery, such as earrings, rings and watches. Each tray comes with silicone padded feet to protect your furniture.', size: '9.5cm width x 1.5cm height x 18cm length'},
     {name: 'Simplicity Tray - Grey', image: ['https://res.cloudinary.com/dtekuqa73/image/upload/v1691585433/wenandco/IMG_1957_wrbzvc.jpg', 'https://res.cloudinary.com/dtekuqa73/image/upload/v1691547050/wenandco/simplicity-oval-tray_xslxc7.jpg'], category: categories[1], price: 24.95, description: 'Our oval trays are a must have for any table or countertop. These oval trays are intended to display your most valued trinkets and jewellery, such as earrings, rings and watches. Each tray comes with silicone padded feet to protect your furniture.', size: '9.5cm width x 1.5cm height x 18cm length'},
     {name: 'Simplicity Tray - Green', image: ['https://res.cloudinary.com/dtekuqa73/image/upload/v1691585432/wenandco/IMG_1959_gclcgs.jpg', 'https://res.cloudinary.com/dtekuqa73/image/upload/v1691547050/wenandco/simplicity-oval-tray_xslxc7.jpg'], category: categories[1], price: 24.95, description: 'Our oval trays are a must have for any table or countertop. These oval trays are intended to display your most valued trinkets and jewellery, such as earrings, rings and watches. Each tray comes with silicone padded feet to protect your furniture.', size: '9.5cm width x 1.5cm height x 18cm length'}
-  ]);
+  ])
 
   console.log(items)
 
-  process.exit();
-})();
+  process.exit()
+})()

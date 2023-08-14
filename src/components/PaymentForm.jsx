@@ -52,7 +52,7 @@ export default function PaymentForm({ purchaseTotal }) {
             try {
                 const {id} = paymentMethod
                 const response = await axios.post("http://localhost:4000/payment", {
-                    amount: purchaseTotal * 100,
+                    amount: Number((purchaseTotal * 100).toFixed(2)),
                     id: id
                 })
                     

@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import './AuthPage.css';
+import { useState } from 'react'
+import './AuthPage.css'
 import LoginForm from '../components/LoginForm'
-import SignUpForm from '../components/SignUpForm';
+import SignUpForm from '../components/SignUpForm'
 
 export default function AuthPage({ setUser }) {
   
@@ -28,5 +28,5 @@ export default function AuthPage({ setUser }) {
       </div>
       {login ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser} />}
     </main>
-  );
+  )
 }

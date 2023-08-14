@@ -3,9 +3,9 @@ import './Item.css'
 import * as itemsAPI from '../utilities/items-api'
 import { useState, useEffect } from 'react'
 import * as ordersAPI from '../utilities/orders-api'
-import { Link } from "react-router-dom"
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import CartItems from '../components/CartItems'
 
 const down = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-down" viewBox="0 0 16 16">
 <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
@@ -49,13 +49,6 @@ export default function Item() {
             })
     }
 
-    function handleChangeQty(itemId, newQty) {
-        ordersAPI.setItemQtyInCart(itemId, newQty)
-            .then(res => {
-                setCart(res)
-            })
-    }
-
     function handleCare() {
         setToCare(!toCare)
     }
@@ -66,14 +59,6 @@ export default function Item() {
 
     function handleShipping() {
         setToShipping(!toShipping)
-    }
-
-    function handleClick(id) {
-        itemsAPI.getById(id)
-            .then(res => {
-                setShopItem(res)
-                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-            })
     }
 
     return (
@@ -147,20 +132,7 @@ export default function Item() {
         <div className='cart-wrapper'>
             { cart.lineItems.length === 0
                 ? <h2 className='empty-cart'>Your shopping cart is empty!</h2>
-                : <div>
-                    <h2>Your chosen items:</h2>
-                    {cart.lineItems.map(item => (
-                        <div className="cart-items" key={item._id}>
-                            <Link to="" onClick={() => {handleClick(item.item._id)}}><img src={item.item.image[0]} alt="" /></Link>
-                            <Link to="" onClick={() => {handleClick(item.item._id)}}>{item.item.name}</Link>             
-                            <h5>${item.extPrice.toFixed(2)}</h5>
-                            <button onClick={() => handleChangeQty(item.item._id, item.qty - 1)}>-</button>
-                            <h5>{item.qty}</h5>
-                            <button onClick={() => handleChangeQty(item.item._id, item.qty + 1)}>+</button>
-                        </div>
-                    ))}
-                    <Link to="/cart" className='view-cart'>View Shopping Cart</Link>
-                </div>
+                : <CartItems cart={cart} setShopItem={setShopItem} setCart={setCart}/>
             }
         </div>
         }

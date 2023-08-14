@@ -61,27 +61,27 @@ orderSchema.methods.setCart = async function(formData) {
 }
 
 orderSchema.methods.addItemToCart = async function (itemId) {
-    const cart = this;
-    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+    const cart = this
+    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId))
     if (lineItem) {
-      lineItem.qty += 1;
+      lineItem.qty += 1
     } else {
-      const Item = mongoose.model('Item');
-      const item = await Item.findById(itemId);
-      cart.lineItems.push({ item });
+      const Item = mongoose.model('Item')
+      const item = await Item.findById(itemId)
+      cart.lineItems.push({ item })
     }
-    return cart.save();
+    return cart.save()
 }
 
 orderSchema.methods.setItemQty = function(itemId, newQty) {
-    const cart = this;
-    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+    const cart = this
+    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId))
     if (lineItem && newQty <= 0) {
-      lineItem.deleteOne();
+      lineItem.deleteOne()
     } else if (lineItem) {
-      lineItem.qty = newQty;
+      lineItem.qty = newQty
     }
-    return cart.save();
+    return cart.save()
 }
 
 module.exports = mongoose.model('Order', orderSchema)

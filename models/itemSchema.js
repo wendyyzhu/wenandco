@@ -1,4 +1,4 @@
-const Schema = require('mongoose').Schema;
+const Schema = require('mongoose').Schema
 
 const itemSchema = new Schema({
   name: { type: String, required: true },
@@ -9,6 +9,6 @@ const itemSchema = new Schema({
   size: { type: String, required: true}
 }, {
   timestamps: true
-});
+})
 
-module.exports = itemSchema;
+module.exports = itemSchema

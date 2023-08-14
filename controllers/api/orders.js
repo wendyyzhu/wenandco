@@ -5,7 +5,8 @@ module.exports = {
     updateCart,
     addToCart,
     setItemQtyInCart,
-    checkout
+    checkout,
+    find
 }
 
 async function cart(req, res) {
@@ -36,4 +37,10 @@ async function checkout(req, res) {
     cart.isPaid = true
     await cart.save()
     res.json(cart)
+}
+
+async function find(req, res, next) {
+    Order.find()
+        .then(orders => res.json(orders))
+        .catch(next)
 }
