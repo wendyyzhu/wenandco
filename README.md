@@ -4,7 +4,9 @@
 
 In my final project at General Assembly Software Engineering Immerisve course I built a full-stack application using the MERN stack - MongoDB, Express.JS, React & Node.JS. The app has full CRUD data operations and implementation of token-base authentication. There is communication between the front-end with the Express back-end via AJAX. 
 
-Check out my website here: https://wenandco.onrender.com
+Check out my website here: https://wenandco.onrender.com 
+</br>
+
 To log in, use the test account or create your own account. 
 Test account details: 
 - Email: test@test.com
