@@ -24,8 +24,7 @@
     "react-scripts": "5.0.1",
     "serve-favicon": "^2.5.0",
     "stripe": "^12.18.0"
-  }, 
-  
+  },
   "scripts": {
     "start": "node server.js",
     "build": "react-scripts build",
